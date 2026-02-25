@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Explorer - Discover the Universe</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="script" href="main.js">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">🚀 Space Explorer</div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#planets" class="nav-link">Planets</a></li>
+                <li><a href="#missions" class="nav-link">Missions</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="login.html" class="nav-link">Login</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Space Explorer</h1>
+            <p class="hero-subtitle">Embark on an Adventure Through the Cosmos</p>
+            <button class="btn btn-primary" onclick="smoothScroll('planets')">Start Exploring</button>
+        </div>
+        <canvas id="canvasElement"></canvas>
+    </section>
+
+    <!-- Planets Section -->
+    <section id="planets" class="planets-section">
+        <h2>Explore Our Solar System</h2>
+        <div class="planets-grid">
+            <!-- Mercury -->
+            <div class="planet-card">
+                <div class="planet-visual mercury-visual"></div>
+                <h3>Mercury</h3>
+                <p class="planet-distance">Avg Distance: 57.9 Million km</p>
+                <p class="planet-desc">The smallest planet and closest to the Sun. Mercury is known for its extreme temperature variations.</p>
+                <div class="planet-stats">
+                    <span class="stat">Type: Terrestrial</span>
+                    <span class="stat">Diameter: 4,879 km</span>
+                </div>
+                <button class="btn btn-small" onclick="showPlanetDetail('mercury')">Learn More</button>
+            </div>
+
+            <!-- Venus -->
+            <div class="planet-card">
+                <div class="planet-visual venus-visual"></div>
+                <h3>Venus</h3>
+                <p class="planet-distance">Avg Distance: 108.2 Million km</p>
+                <p class="planet-desc">Earth's sister planet with a toxic atmosphere. Venus is the hottest planet in our solar system.</p>
+                <div class="planet-stats">
+                    <span class="stat">Type: Terrestrial</span>
+                    <span class="stat">Diameter: 12,104 km</span>
+                </div>
+                <button class="btn btn-small" onclick="showPlanetDetail('venus')">Learn More</button>
+            </div>
+
+            <!-- Earth -->
+            <div class="planet-card">
+                <div class="planet-visual earth-visual"></div>
+                <h3>Earth</h3>
+                <p class="planet-distance">Avg Distance: 149.6 Million km</p>
+                <p class="planet-desc">Our home planet. The only known world to harbor life and support a diverse ecosystem.</p>
+                <div class="planet-stats">
+                    <span class="stat">Type: Terrestrial</span>
+                    <span class="stat">Diameter: 12,742 km</span>
+                </div>
+                <button class="btn btn-small" onclick="showPlanetDetail('earth')">Learn More</button>
+            </div>
+
+            <!-- Mars -->
+            <div class="planet-card">
+                <div class="planet-visual mars-visual"></div>
+                <h3>Mars</h3>
+                <p class="planet-distance">Avg Distance: 227.9 Million km</p>
+                <p class="planet-desc">The Red Planet is a prime target for human exploration with potential subsurface water.</p>
+                <div class="planet-stats">
+                    <span class="stat">Type: Terrestrial</span>
+                    <span class="stat">Diameter: 6,779 km</span>
+                </div>
+                <button class="btn btn-small" onclick="showPlanetDetail('mars')">Learn More</button>
+            </div>
+
+            <!-- Jupiter -->
+            <div class="planet-card">
+                <div class="planet-visual jupiter-visual"></div>
+                <h3>Jupiter</h3>
+                <p class="planet-distance">Avg Distance: 778.5 Million km</p>
+                <p class="planet-desc">The Gas Giant supreme. Jupiter is the largest planet with a Great Red Spot storm system.</p>
+                <div class="planet-stats">
+                    <span class="stat">Type: Gas Giant</span>
+                    <span class="stat">Diameter: 139,820 km</span>
+                </div>
+                <button class="btn btn-small" onclick="showPlanetDetail('jupiter')">Learn More</button>
+            </div>
+
+            <!-- Saturn -->
+            <div class="planet-card">
+                <div class="planet-visual saturn-visual"></div>
+                <h3>Saturn</h3>
+                <p class="planet-distance">Avg Distance: 1.4 Billion km</p>
+                <p class="planet-desc">Famous for its spectacular ring system. Saturn is a gas giant with many moons.</p>
+                <div class="planet-stats">
+                    <span class="stat">Type: Gas Giant</span>
+                    <span class="stat">Diameter: 116,460 km</span>
+                </div>
+                <button class="btn btn-small" onclick="showPlanetDetail('saturn')">Learn More</button>
+            </div>
+
+            <!-- Uranus -->
+            <div class="planet-card">
+                <div class="planet-visual uranus-visual"></div>
+                <h3>Uranus</h3>
+                <p class="planet-distance">Avg Distance: 2.9 Billion km</p>
+                <p class="planet-desc">An ice giant that rotates on its side. Uranus has a faint ring system and many moons.</p>
+                <div class="planet-stats">
+                    <span class="stat">Type: Ice Giant</span>
+                    <span class="stat">Diameter: 50,724 km</span>
+                </div>
+                <button class="btn btn-small" onclick="showPlanetDetail('uranus')">Learn More</button>
+            </div>
+
+            <!-- Neptune -->
+            <div class="planet-card">
+                <div class="planet-visual neptune-visual"></div>
+                <h3>Neptune</h3>
+                <p class="planet-distance">Avg Distance: 4.5 Billion km</p>
+                <p class="planet-desc">The windiest planet in our solar system. Neptune is an ice giant with a beautiful blue atmosphere.</p>
+                <div class="planet-stats">
+                    <span class="stat">Type: Ice Giant</span>
+                    <span class="stat">Diameter: 49,244 km</span>
+                </div>
+                <button class="btn btn-small" onclick="showPlanetDetail('neptune')">Learn More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section id="missions" class="missions-section">
+        <h2>Historic Space Missions</h2>
+        <div class="missions-container">
+            <div class="mission-card">
+                <div class="mission-icon">🛸</div>
+                <h3>Apollo 11</h3>
+                <p class="mission-year">1969</p>
+                <p class="mission-desc">First manned moon landing. Neil Armstrong became the first human to walk on the Moon.</p>
+                <p class="mission-detail">Duration: 8 days</p>
+            </div>
+
+            <div class="mission-card">
+                <div class="mission-icon">🚀</div>
+                <h3>Voyager 1</h3>
+                <p class="mission-year">1977</p>
+                <p class="mission-desc">Deep space probe that left the solar system. Still sending data from interstellar space.</p>
+                <p class="mission-detail">Distance: 24 billion km</p>
+            </div>
+
+            <div class="mission-card">
+                <div class="mission-icon">🛰️</div>
+                <h3>Hubble Space Telescope</h3>
+                <p class="mission-year">1990</p>
+                <p class="mission-desc">Revolutionary space telescope that transformed our view of the universe with stunning images.</p>
+                <p class="mission-detail">Active: 34+ years</p>
+            </div>
+
+            <div class="mission-card">
+                <div class="mission-icon">🤖</div>
+                <h3>Mars Rover Perseverance</h3>
+                <p class="mission-year">2021</p>
+                <p class="mission-desc">Latest generation rover searching for signs of ancient microbial life on Mars.</p>
+                <p class="mission-detail">Location: Jezero Crater</p>
+            </div>
+
+            <div class="mission-card">
+                <div class="mission-icon">🌌</div>
+                <h3>James Webb Space Telescope</h3>
+                <p class="mission-year">2021</p>
+                <p class="mission-desc">Most powerful space telescope ever built. Observing the earliest galaxies in the universe.</p>
+                <p class="mission-detail">Distance: 1.5 million km</p>
+            </div>
+
+            <div class="mission-card">
+                <div class="mission-icon">🔭</div>
+                <h3>ISS - International Space Station</h3>
+                <p class="mission-year">1998 - Present</p>
+                <p class="mission-desc">Continuously inhabited space laboratory orbiting Earth. Home to multinational research efforts.</p>
+                <p class="mission-detail">Altitude: 400 km</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facts Section -->
+    <section class="facts-section">
+        <h2>Amazing Space Facts</h2>
+        <div class="facts-container">
+            <div class="fact-card">
+                <h4>🌟 The Sun</h4>
+                <p>The Sun contains 99.86% of all the mass in our entire solar system.</p>
+            </div>
+            <div class="fact-card">
+                <h4>⭐ Light Years</h4>
+                <p>The nearest star to Earth (besides the Sun) is Proxima Centauri, 4.24 light-years away.</p>
+            </div>
+            <div class="fact-card">
+                <h4>🪐 Saturn's Rings</h4>
+                <p>Saturn's rings are made mostly of water ice and rock fragments ranging from tiny to mountain-sized.</p>
+            </div>
+            <div class="fact-card">
+                <h4>🌌 Black Holes</h4>
+                <p>Black holes are regions where gravity is so strong that not even light can escape.</p>
+            </div>
+            <div class="fact-card">
+                <h4>🌙 Moon Distance</h4>
+                <p>The Moon is slowly drifting away from Earth at about 3.8 cm per year.</p>
+            </div>
+            <div class="fact-card">
+                <h4>🪨 Asteroids</h4>
+                <p>The asteroid belt contains millions of rocky objects between Mars and Jupiter.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Features Section -->
+    <section class="interactive-section">
+        <h2>Interactive Tools</h2>
+        <div class="tools-container">
+            <div class="tool-card">
+                <h3>Planet Size Comparison</h3>
+                <p>Compare the relative sizes of all planets in our solar system.</p>
+                <button class="btn btn-small" onclick="showSizeComparison()">View Comparison</button>
+            </div>
+            <div class="tool-card">
+                <h3>Distance Calculator</h3>
+                <p>Calculate distances between planets based on current orbital positions.</p>
+                <button class="btn btn-small" onclick="showDistanceCalculator()">Open Calculator</button>
+            </div>
+            <div class="tool-card">
+                <h3>Space Event Timeline</h3>
+                <p>Explore important dates and events in space exploration history.</p>
+                <button class="btn btn-small" onclick="showTimeline()">View Timeline</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <h2>About Space Explorer</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Welcome to Space Explorer, your gateway to understanding the cosmos. Our mission is to inspire curiosity and wonder about the universe we inhabit. From the smallest planets to the largest stars, we provide comprehensive information about space exploration and celestial objects.</p>
+                <p>Whether you're a student learning about our solar system, an enthusiast following the latest space missions, or simply curious about the universe, Space Explorer offers engaging content and interactive tools to enhance your understanding.</p>
+                <p>Join us on this incredible journey through space and discover the wonders that await among the stars.</p>
+            </div>
+            <div class="about-stats">
+                <div class="stat-item">
+                    <span class="stat-number">8</span>
+                    <span class="stat-label">Planets</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">200+</span>
+                    <span class="stat-label">Moons</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">1000+</span>
+                    <span class="stat-label">Asteroids</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">∞</span>
+                    <span class="stat-label">Possibilities</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <h2>Get In Touch</h2>
+        <div class="contact-container">
+            <form class="contact-form" onsubmit="handleContactSubmit(event)">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <p><strong>Email:</strong> spaceexplorer@example.com</p>
+                <p><strong>Phone:</strong> +91 9876543210</p>
+                <p><strong>Address:</strong>computer software collage,udumalpete</p>
+                <div class="social-links">
+                    <a href="#" class="social-link">Facebook</a>
+                    <a href="#" class="social-link">Twitter</a>
+                    <a href="#" class="social-link">Instagram</a>
+                    <a href="#" class="social-link">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for Planet Details -->
+    <div id="planetModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closePlanetModal()">&times;</span>
+            <div id="planetDetails"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Space Explorer. All rights reserved.</p>
+            <p>Explore • Learn • Discover</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
